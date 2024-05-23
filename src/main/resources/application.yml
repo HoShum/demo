@@ -1,0 +1,33 @@
+# 服务器
+server:
+  port: 8080
+
+spring:
+  # 数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: kaifu2015sun
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # Redis
+  redis:
+    # 地址
+    host: localhost
+    port: 6379
+
+# MyBatis相关的配置
+mybatis:
+  # 配置Mapper扫描路径，这里扫描的是/resources/mapper/Mapper后缀的xml文件
+  mapper-locations: classpath:mapper/*Mapper.xml
+  # 配置MyBatis类的别名
+  type-aliases-package: com.example.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    map-underscore-to-camel-case: true
+
+# 调试
+#debug: true
+#logging:
+#  charset:
+#    console: UTF-8
+
